@@ -18,7 +18,7 @@ export default function Home() {
 
           placeholder: "Type to search person",
         }}
-        className="w-52"
+        className="w-72"
       />
     </main>
   );

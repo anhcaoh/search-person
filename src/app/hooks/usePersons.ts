@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import toListOptions from "../utils/toListOptions";
+import toListOptions from "../utils/list.options";
 const usePersons = () => {
   const [data, setData] = useState<null | any | object[]>(null);
   const [loading, setLoading] = useState<boolean>(false);
