@@ -3,6 +3,12 @@
 import { useMemo, useState } from "react";
 import Heading from "./components/Heading";
 import Search from "./components/Search";
+import {
+  SEARCH_LOADING,
+  SEARCH_NO_DATA_AVAILABLE,
+  SEARCH_PLACEHOLDER,
+  SEARCH_TITLE,
+} from "./constants";
 import usePerson, { IPerson } from "./hooks/usePerson";
 import toListOptions, { IListOption } from "./utils/list.options";
 import toAddressString from "./utils/string.address";
@@ -19,7 +25,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
-        <Heading text="Search people" />
+        <Heading text={SEARCH_TITLE} />
         <Search
           options={peopleOptions}
           onChange={(_, value) => {
@@ -27,12 +33,12 @@ export default function Home() {
           }}
           content={{
             noDataAvailable: loading
-              ? "Loading..."
+              ? SEARCH_LOADING
               : error
               ? (error as string)
-              : "No persons available",
+              : SEARCH_NO_DATA_AVAILABLE,
 
-            placeholder: "Name",
+            placeholder: SEARCH_PLACEHOLDER,
           }}
           className="w-72"
         />

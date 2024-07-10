@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { SEARCH_ERROR_MESSAGE } from "../constants";
 
 export interface IPerson {
   id: number;
@@ -40,7 +41,7 @@ const usePerson = () => {
               if (data) setPeople(data);
               setLoading(false);
             })
-            .catch(() => setError("Something went wrong. Try again later."))
+            .catch(() => setError(SEARCH_ERROR_MESSAGE))
             .finally(() => setLoading(false));
       } catch (error: unknown) {
         setError(error as Error);
