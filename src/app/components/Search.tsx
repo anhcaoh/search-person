@@ -2,10 +2,13 @@
 
 import { TextField } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
+import { SyntheticEvent } from "react";
+import { IListOption } from "../utils/list.options";
 
 export interface ISearch {
   id?: string;
-  options: { id: string; label: string; value: string }[];
+  options: IListOption[];
+  onChange?: (event: SyntheticEvent<Element, Event>, value: any) => void;
   content?: {
     noDataAvailable: string;
     placeholder?: string;
@@ -16,6 +19,7 @@ export interface ISearch {
 const Search = ({
   id = "search",
   options,
+  onChange,
   content,
   CTA,
   className,
@@ -25,6 +29,7 @@ const Search = ({
       className={className}
       id={id}
       options={options}
+      onChange={onChange}
       noOptionsText={content?.noDataAvailable}
       renderInput={(props) =>
         CTA ?? <TextField {...props} label={content?.placeholder} />
