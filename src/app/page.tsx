@@ -1,12 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Heading from "./components/Heading";
+import Heading, { SubHeading } from "./components/Heading";
 import Search from "./components/Search";
 import {
   SEARCH_LOADING,
   SEARCH_NO_DATA_AVAILABLE,
   SEARCH_PLACEHOLDER,
+  SEARCH_SUBTITLE,
   SEARCH_TITLE,
 } from "./constants";
 import usePerson, { IPerson } from "./hooks/usePerson";
@@ -25,7 +26,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
-        <Heading text={SEARCH_TITLE} />
+        <Heading text={SEARCH_TITLE} className="leading-normal mb-0" />
+        <SubHeading text={SEARCH_SUBTITLE} />
         <Search
           options={peopleOptions}
           onChange={(_, value) => {
@@ -40,9 +42,9 @@ export default function Home() {
 
             placeholder: SEARCH_PLACEHOLDER,
           }}
-          className="w-72"
+          className="w-72 mb-8"
         />
-        <div className="mt-5 whitespace-pre-line place-content-center">
+        <div className="whitespace-pre-line font-mono place-content-center">
           {(person as IListOption)?.label}
           {person?.address && toAddressString(person.address)}
         </div>

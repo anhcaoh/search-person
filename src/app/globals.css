@@ -14,6 +14,15 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+  label {
+    color: rgb(var(--foreground-rgb)) !important;
+  }
+  fieldset {
+    border-color: rgb(var(--foreground-rgb)) !important;
+  }
+  input, button {  
+    color: rgb(var(--foreground-rgb)) !important;
+  }
 }
 
 body {
